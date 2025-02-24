@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animirani Svetleći Prsten</title>
+    <style>
+        body {
+            background-color: #050210;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .ring {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ring::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #fb5dad);
+            animation: rotate 3s linear infinite;
+            mask-image: radial-gradient(circle, transparent 55%, black 58%);
+            -webkit-mask-image: radial-gradient(circle, transparent 55%, black 58%);
+        }
+        .glow {
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #fb5dad);
+            filter: blur(40px);
+            opacity: 0.8;
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ring">
+        <div class="glow"></div>
+    </div>
+</body>
+</html>
